@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plaque Tournante | Incubateur Culturel Québécois</title>
+    <style>
+        :root {
+            --primary: #6e44ff;
+            --secondary: #00b4d8;
+            --sky-blue: #e6f7ff;
+            --soft-blue: #b3e0ff;
+            --accent-blue: #66c2ff;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --text-dark: #2a4365;
+            --text-light: #4a6fa5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            background-image: radial-gradient(circle at 25% 50%, rgba(110, 68, 255, 0.15) 0%, transparent 40%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.8rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 0 4rem;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--light), #c2c2c2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(110, 68, 255, 0.3);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 6rem 0;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Section Événement avec largeur fixe */
+        .event-section {
+            text-align: center;
+            margin: 6rem auto;
+            width: 580px; /* Largeur fixe */
+            max-width: 100%;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .event-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(100, 149, 237, 0.15);
+            border: 1px solid var(--soft-blue);
+            transition: transform 0.3s ease;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .event-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .event-header {
+            padding: 1.5rem;
+            color: var(--light);
+            position: relative;
+        }
+        
+        .event-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .event-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .event-title a:hover {
+            text-decoration: underline;
+        }
+        
+        .event-description {
+            color: var(--light);
+            opacity: 0.9;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .truncated-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .truncated-text::after {
+            content: '...';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            background: var(--dark);
+            padding-left: 4px;
+        }
+        
+        .read-more {
+            color: var(--accent-blue);
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 0.5rem;
+            transition: opacity 0.2s;
+        }
+        
+        .read-more:hover {
+            opacity: 0.8;
+        }
+        
+        .event-details {
+            padding: 1.5rem;
+        }
+        
+        .detail-row {
+            display: flex;
+            margin-bottom: 1.25rem;
+            align-items: flex-start;
+        }
+        
+        .detail-icon {
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            color: var(--accent-blue);
+            min-width: 24px;
+            text-align: center;
+        }
+        
+        .detail-content {
+            flex: 1;
+        }
+        
+        .detail-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--light);
+            opacity: 0.7;
+            margin-bottom: 0.25rem;
+        }
+        
+        .detail-value {
+            font-size: 1rem;
+            color: var(--light);
+            font-weight: 500;
+        }
+        
+        .event-url {
+            display: block;
+            margin-top: 0.25rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+        
+        .event-url:hover {
+            text-decoration: underline;
+        }
+        
+        .event-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: rgba(102, 194, 255, 0.2);
+            color: var(--accent-blue);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        .event-footer {
+            padding: 1rem 1.5rem;
+            background-color: rgba(179, 224, 255, 0.1);
+            display: flex;
+            justify-content: flex-end;
+            border-top: 1px solid rgba(179, 224, 255, 0.2);
+        }
+        
+        .event-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .event-button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--soft-blue);
+            color: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .event-button:hover {
+            background: var(--accent-blue);
+            color: var(--dark);
+        }
+
+        /* Section Newsletter */
+        .newsletter {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 3rem;
+            margin: 4rem 0;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .newsletter h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            opacity: 0.8;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .newsletter-button {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 0 2rem;
+            border-radius: 0 50px 50px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .newsletter-button:hover {
+            opacity: 0.9;
+        }
+
+        .success-message {
+            display: none;
+            color: #4BB543;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                border-radius: 50px;
+                margin-bottom: 1rem;
+            }
+
+            .newsletter-button {
+                border-radius: 50px;
+                padding: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .event-section {
+                width: 100%; /* Pleine largeur sur mobile */
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Plaque Tournante</div>
+            <a href="#contact" class="cta-button">Contact</a>
+        </header>
+        
+        <section class="hero">
+            <h1>Écosystème Indie Québécois</h1>
+            <p class="tagline">
+                Découvrez les talents émergents avant qu'ils n'explosent. 
+                Une plateforme québécoise ouverte pour l'écosystème musical indépendant.
+            </p>
+            <!-- <a href="#early-access" class="cta-button">Accès anticipé</a> -->
+        </section>
+        
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">♬</div>
+                <h3 class="feature-title">Philosophie</h3>
+                <p>Moins de bruit, plus de profondeur</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">⎈</div>
+                <h3 class="feature-title">Technologie ouverte</h3>
+                <p>Utilisation de protocoles innovants (AT protocol, Bluesky) pour une indépendance de vos données.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">✧</div>
+                <h3 class="feature-title">Communauté Participative</h3>
+                <p>Devenez découvreur de talents et contribuez à la curation de la scène musicale.</p>
+            </div>
+        </section>
+
+        <!-- Section Événement avec largeur fixe -->
+        <section class="event-section">
+            <h2 class="section-title">Prochain Événement</h2>
+            <div class="event-card">
+                <img src="https://picsum.photos/800/400?random=1&blur=1&grayscale" alt="Rencontre communautaire" class="event-image">
+                
+                <div class="event-header">
+                    <h2 class="event-title">
+                        <a href="https://example.com/events/sf-meetup-2024" target="_blank">
+                            Dan Auger - prestation acoustique
+                        </a>
+                    </h2>
+                    <div class="event-description">
+                        <div class="truncated-text" id="eventDescription">
+                            Une soirée unique où Dan Auger, artiste reconnu pour ses compositions folk-rock puissantes, se dévoile dans un format intimiste et dépouillé. Armé uniquement de sa guitare acoustique et de sa voix, il propose un voyage à travers ses plus grands succès et quelques compositions inédites.                        </div>
+                        <div class="read-more" onclick="toggleDescription()">Lire la suite</div>
+                    </div>
+                </div>
+                
+                <div class="event-details">
+                    <div class="detail-row">
+                        <div class="detail-icon">📅</div>
+                        <div class="detail-content">
+                            <div class="detail-label">Date</div>
+                            <div class="detail-value">5 juin 2026 • 19h00</div>
+                            <div class="detail-label">Statut</div>
+                            <div class="detail-value">Programmé</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-icon">📍</div>
+                        <div class="detail-content">
+                            <div class="detail-label">Lieu</div>
+                            <div class="detail-value">Chicoutimi, Québec</div>
+                            <span class="event-status">En personne</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-icon">🔗</div>
+                        <div class="detail-content">
+                            <div class="detail-label">URL de l'événement</div>
+                            <a href="#" class="event-url" target="_blank">
+                                example.com/billets/dauger
+                            </a>
+                        </div>
+                    </div>
+
+                <div class="event-footer">
+                    <div class="event-actions">
+                        <button class="event-button">✏️ Modifier</button>
+                        <button class="event-button">🔔 Rappel</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Newsletter
+        <section class="newsletter">
+            <h2>Restez connectés</h2>
+            <p>Abonnez-vous à notre infolettre pour recevoir les dernières découvertes musicales et les actualités de la scène indépendante.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" class="newsletter-input" placeholder="Votre email" required>
+                <button type="submit" class="newsletter-button">S'abonner</button>
+            </form>
+            <div class="success-message" id="successMessage">
+                Merci pour votre inscription! Un email de confirmation vous a été envoyé.
+            </div>
+        </section>
+         -->
+
+      
+        <footer>
+            <p>© 2023 Plaque Tournante. Tous droits réservés.</p>
+            <p>Dédié à l'écosystème musical indépendant québécois.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Gestion de la description d'événement
+        function toggleDescription() {
+            const desc = document.getElementById('eventDescription');
+            const btn = document.querySelector('.read-more');
+            
+            if (desc.classList.contains('truncated-text')) {
+                desc.classList.remove('truncated-text');
+                btn.textContent = 'Réduire';
+            } else {
+                desc.classList.add('truncated-text');
+                btn.textContent = 'Lire la suite';
+            }
+        }
+
+        // Gestion de la newsletter
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulation d'envoi
+            document.getElementById('successMessage').style.display = 'block';
+            this.reset();
+            
+            setTimeout(function() {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
