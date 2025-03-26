@@ -137,8 +137,8 @@
         /* Section Événement avec largeur fixe */
         .event-section {
             text-align: center;
-            margin: 6rem auto;
-            width: 380px; /* Largeur fixe */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             max-width: 100%;
         }
         
@@ -465,10 +465,8 @@
         </section>
 
         <!-- Section Événement avec largeur fixe -->
-        
-        <section class="event-section">
             <h2 class="section-title">Aperçu</h2>
-
+        <section class="event-section">
             <div class="event-card">
                 <img src="https://picsum.photos/800/400?random=4&blur=1&grayscale" alt="Les Désaxés - Comedy Club" class="event-image">
                 
