@@ -138,7 +138,7 @@
         .event-section {
             text-align: center;
             margin: 6rem auto;
-            width: 580px; /* Largeur fixe */
+            width: 380px; /* Largeur fixe */
             max-width: 100%;
         }
         
@@ -465,10 +465,125 @@
         </section>
 
         <!-- Section Événement avec largeur fixe -->
+        
         <section class="event-section">
-            <h2 class="section-title">Prochain Événement</h2>
+            <h2 class="section-title">Aperçu</h2>
+
             <div class="event-card">
-                <img src="https://picsum.photos/800/400?random=1&blur=1&grayscale" alt="Rencontre communautaire" class="event-image">
+                <img src="https://picsum.photos/800/400?random=4&blur=1&grayscale" alt="Les Désaxés - Comedy Club" class="event-image">
+                
+                <div class="event-header">
+                    <h2 class="event-title">
+                        <a href="https://example.com/events/desaxes-comedy" target="_blank">
+                            Les Désaxés - Spécial "Apocalypse Wow!"
+                        </a>
+                    </h2>
+                    <div class="event-description">
+                        <div class="truncated-text" id="eventDescription">
+                            Le trio culte de l'humour absurde revient avec un nouveau spectacle déjanté. Entre sketchs surréalistes, chansons décalées et interactions hilarantes avec le public, ils explorent la fin du monde avec un humour aussi noir qu'une panne d'électricité. Pour public averti (et désaxé).
+                        </div>
+                        <div class="read-more" onclick="toggleDescription()">Lire la suite</div>
+                    </div>
+                </div>
+                
+                <div class="event-details">
+                    <div class="detail-row">
+                        <div class="detail-icon">📅</div>
+                        <div class="detail-content">
+                            <div class="detail-label">Date</div>
+                            <div class="detail-value">3 novembre 2026 • 19h30</div>
+                            <div class="detail-label">Statut</div>
+                            <div class="detail-value">Nouveaux billets!</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-icon">📍</div>
+                        <div class="detail-content">
+                            <div class="detail-label">Lieu</div>
+                            <div class="detail-value">Cabaret Juste pour Rire, Montréal</div>
+                            <span class="event-status">Bar ouvert pendant le spectacle</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-icon">🔗</div>
+                        <div class="detail-content">
+                            <div class="detail-label">URL de l'événement</div>
+                            <a href="#" class="event-url" target="_blank">
+                                example.com/billets/desaxes
+                            </a>
+                        </div>
+                    </div>
+        
+                    <div class="event-footer">
+                        <div class="event-actions">
+                            <button class="event-button">✏️ Modifier</button>
+                            <button class="event-button">🔔 Rappel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            <div class="event-card">
+                <img src="https://picsum.photos/800/400?random=2&blur=1&grayscale" alt="Neon Jazz Collective" class="event-image">
+                
+                <div class="event-header">
+                    <h2 class="event-title">
+                        <a href="https://example.com/events/neon-jazz" target="_blank">
+                            Neon Jazz Collective
+                        </a>
+                    </h2>
+                    <div class="event-description">
+                        <div class="truncated-text" id="eventDescription">
+                            Un mélange audacieux de jazz traditionnel et de beats électroniques. Neon Jazz Collective repousse les limites du genre avec des improvisations énergiques, des synthés analogiques et une section rythmique hypnotique. Une expérience immersive où Miles Davis rencontre Daft Punk.
+                        </div>
+                        <div class="read-more" onclick="toggleDescription()">Lire la suite</div>
+                    </div>
+                </div>
+                
+                <div class="event-details">
+                    <div class="detail-row">
+                        <div class="detail-icon">📅</div>
+                        <div class="detail-content">
+                            <div class="detail-label">Date</div>
+                            <div class="detail-value">12 juillet 2026 • 21h30</div>
+                            <div class="detail-label">Statut</div>
+                            <div class="detail-value">Billets en vente</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-icon">📍</div>
+                        <div class="detail-content">
+                            <div class="detail-label">Lieu</div>
+                            <div class="detail-value">MTL Nightclub, Montréal</div>
+                            <span class="event-status">Soirée immersive</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-icon">🔗</div>
+                        <div class="detail-content">
+                            <div class="detail-label">URL de l'événement</div>
+                            <a href="#" class="event-url" target="_blank">
+                                example.com/billets/neonjazz
+                            </a>
+                        </div>
+                    </div>
+        
+                    <div class="event-footer">
+                        <div class="event-actions">
+                            <button class="event-button">✏️ Modifier</button>
+                            <button class="event-button">🔔 Rappel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="event-card">
+                <img src="https://picsum.photos/800/400?random=1&blur=1&grayscale" alt="Dan Auger - prestation acoustique" class="event-image">
                 
                 <div class="event-header">
                     <h2 class="event-title">
