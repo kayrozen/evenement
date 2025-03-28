@@ -483,9 +483,6 @@
             }
         }
     </style>
-    
-    <script src="https://unpkg.com/@atproto/api@0.0.5/dist/bundle.js"></script>
-
 </head>
 <body>
     <div class="container">
@@ -500,7 +497,7 @@
                 Une plateforme événementielle basée sur des standards ouverts pour le monde événementiel. 
             </p>
             <!-- <a href="#early-access" class="cta-button">Accès anticipé</a> -->
-            <a href="#blog" class="cta-button">Blog</a>
+            <a href="https://whtwnd.com/kayrozen.com/3llegbfk34z2a" class="cta-button">Blog</a>
         </section>
         
         <section class="features">
@@ -794,45 +791,6 @@
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section class="blog">
-             <script>
-                const { BskyAgent } = atproto
-                
-                async function fetchBlogPost() {
-                  try {
-                    const agent = new BskyAgent({
-                      service: 'https://bsky.social'
-                    })
-            
-                    const response = await agent.api.com.atproto.repo.listRecords({
-                      repo: 'kayrozen.com', // Replace with the actual DID or handle
-                      collection: 'com.whtwnd.blog.entry',
-                      limit: 2
-                    })
-            
-                    console.log('Blog posts:', response.data.records)
-                    
-                    // Display results on page
-                    const container = document.createElement('div')
-                    response.data.records.forEach(record => {
-                      const postDiv = document.createElement('div')
-                      postDiv.innerHTML = `<h3>${record.value.title || 'Untitled'}</h3>
-                                          <p>${record.value.content || 'No content'}</p>
-                                          <hr>`
-                      container.appendChild(postDiv)
-                    })
-                    document.body.appendChild(container)
-            
-                  } catch (error) {
-                    console.error('Error:', error)
-                    document.body.innerHTML = `<p style="color:red">Error fetching posts: ${error.message}</p>`
-                  }
-                }
-            
-                fetchBlogPost()
-              </script>
         </section>
 
         
