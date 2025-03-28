@@ -483,6 +483,9 @@
             }
         }
     </style>
+    
+    <script src="https://unpkg.com/@atproto/api@0.0.5/dist/bundle.js"></script>
+
 </head>
 <body>
     <div class="container">
@@ -492,36 +495,36 @@
         </header>
         
         <section class="hero">
-            <h1>Écosystème Indie Québécois</h1>
+            <h1>Écosystème d'événements Indie Québécois</h1>
             <p class="tagline">
-                Découvrez les talents émergents avant qu'ils n'explosent. 
-                Une plateforme québécoise ouverte pour l'écosystème musical indépendant.
+                Une plateforme événementielle basée sur des standards ouverts pour le monde événementiel. 
             </p>
             <!-- <a href="#early-access" class="cta-button">Accès anticipé</a> -->
+            <a href="#blog" class="cta-button">Blog</a>
         </section>
         
         <section class="features">
             <div class="feature-card">
                 <div class="feature-icon">♬</div>
                 <h3 class="feature-title">Philosophie</h3>
-                <p>Moins de bruit, plus de profondeur</p>
+                <p>Se détacher du monopole de Facebook Events au Québec. Utiliser des protocoles, pas des plateformes*</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">⎈</div>
                 <h3 class="feature-title">Technologie ouverte</h3>
-                <p>Utilisation de protocoles innovants (AT protocol, Bluesky) pour une indépendance de vos données.</p>
+                <p>Votre source de données qui vous appartient, vos fils d'informations ouverts et personnalisables</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">✧</div>
-                <h3 class="feature-title">Communauté Participative</h3>
-                <p>Devenez découvreur de talents et contribuez à la curation de la scène musicale.</p>
+                <h3 class="feature-title">Initiative locale</h3>
+                <p>Aidez à développer le futur de la découvrabilité des événements Québécois !</p>
             </div>
         </section>
 
         <!-- Section Événement avec largeur fixe -->
-            <h2 class="section-title">Aperçu</h2>
+            <h2 class="section-title">Fonctionnalitées</h2>
         <section class="event-section">
             <div class="event-card">
                 <img src="https://picsum.photos/800/400?random=4&blur=1&grayscale" alt="Les Désaxés - Comedy Club" class="event-image">
@@ -793,6 +796,46 @@
             </div>
         </section>
 
+        <section class="blog">
+             <script>
+                const { BskyAgent } = atproto
+                
+                async function fetchBlogPost() {
+                  try {
+                    const agent = new BskyAgent({
+                      service: 'https://bsky.social'
+                    })
+            
+                    const response = await agent.api.com.atproto.repo.listRecords({
+                      repo: 'kayrozen.com', // Replace with the actual DID or handle
+                      collection: 'com.whtwnd.blog.entry',
+                      limit: 2
+                    })
+            
+                    console.log('Blog posts:', response.data.records)
+                    
+                    // Display results on page
+                    const container = document.createElement('div')
+                    response.data.records.forEach(record => {
+                      const postDiv = document.createElement('div')
+                      postDiv.innerHTML = `<h3>${record.value.title || 'Untitled'}</h3>
+                                          <p>${record.value.content || 'No content'}</p>
+                                          <hr>`
+                      container.appendChild(postDiv)
+                    })
+                    document.body.appendChild(container)
+            
+                  } catch (error) {
+                    console.error('Error:', error)
+                    document.body.innerHTML = `<p style="color:red">Error fetching posts: ${error.message}</p>`
+                  }
+                }
+            
+                fetchBlogPost()
+              </script>
+        </section>
+
+        
         <!-- Section Newsletter
         <section class="newsletter">
             <h2>Restez connectés</h2>
@@ -809,7 +852,7 @@
 
       
         <footer>
-            <p>© 2023 Plaque Tournante. Tous droits réservés.</p>
+            <p>© 2025 Plaque Tournante.</p>
             <p>Dédié à l'écosystème musical indépendant québécois.</p>
         </footer>
     </div>
