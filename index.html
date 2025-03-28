@@ -750,152 +750,7 @@
         <section class="code-section">
             <h2 class="section-title">Lexicon des Événements</h2>
             <div class="code-container">
-                <pre><code class="language-json" id="eventLexicon">{
-    <span class="json-key">"lexicon"</span>: <span class="json-value">1</span>,
-    <span class="json-key">"id"</span>: <span class="json-string">"community.lexicon.calendar.event"</span>,
-    <span class="json-key">"defs"</span>: {
-        <span class="json-key">"main"</span>: {
-            <span class="json-key">"type"</span>: <span class="json-string">"record"</span>,
-            <span class="json-key">"description"</span>: <span class="json-string">"A calendar event."</span>,
-            <span class="json-key">"key"</span>: <span class="json-string">"tid"</span>,
-            <span class="json-key">"record"</span>: {
-                <span class="json-key">"type"</span>: <span class="json-string">"object"</span>,
-                <span class="json-key">"required"</span>: [
-                    <span class="json-string">"createdAt"</span>,
-                    <span class="json-string">"name"</span>
-                ],
-                <span class="json-key">"properties"</span>: {
-                    <span class="json-key">"name"</span>: {
-                        <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
-                        <span class="json-key">"description"</span>: <span class="json-string">"The name of the event."</span>
-                    },
-                    <span class="json-key">"description"</span>: {
-                        <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
-                        <span class="json-key">"description"</span>: <span class="json-string">"The description of the event."</span>
-                    },
-                    <span class="json-key">"createdAt"</span>: {
-                        <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
-                        <span class="json-key">"format"</span>: <span class="json-string">"datetime"</span>,
-                        <span class="json-key">"description"</span>: <span class="json-string">"Client-declared timestamp when the event was created."</span>
-                    },
-                    <span class="json-key">"startsAt"</span>: {
-                        <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
-                        <span class="json-key">"format"</span>: <span class="json-string">"datetime"</span>,
-                        <span class="json-key">"description"</span>: <span class="json-string">"Client-declared timestamp when the event starts."</span>
-                    },
-                    <span class="json-key">"endsAt"</span>: {
-                        <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
-                        <span class="json-key">"format"</span>: <span class="json-string">"datetime"</span>,
-                        <span class="json-key">"description"</span>: <span class="json-string">"Client-declared timestamp when the event ends."</span>
-                    },
-                    <span class="json-key">"mode"</span>: {
-                        <span class="json-key">"type"</span>: <span class="json-string">"ref"</span>,
-                        <span class="json-key">"ref"</span>: <span class="json-string">"community.lexicon.calendar.event#mode"</span>,
-                        <span class="json-key">"description"</span>: <span class="json-string">"The attendance mode of the event."</span>
-                    },
-                    <span class="json-key">"status"</span>: {
-                        <span class="json-key">"type"</span>: <span class="json-string">"ref"</span>,
-                        <span class="json-key">"ref"</span>: <span class="json-string">"community.lexicon.calendar.event#status"</span>,
-                        <span class="json-key">"description"</span>: <span class="json-string">"The status of the event."</span>
-                    },
-                    <span class="json-key">"locations"</span>: {
-                        <span class="json-key">"type"</span>: <span class="json-string">"array"</span>,
-                        <span class="json-key">"description"</span>: <span class="json-string">"The locations where the event takes place."</span>,
-                        <span class="json-key">"items"</span>: {
-                            <span class="json-key">"type"</span>: <span class="json-string">"union"</span>,
-                            <span class="json-key">"refs"</span>: [
-                                <span class="json-string">"community.lexicon.calendar.event#uri"</span>,
-                                <span class="json-string">"community.lexicon.location.address"</span>,
-                                <span class="json-string">"community.lexicon.location.fsq"</span>,
-                                <span class="json-string">"community.lexicon.location.geo"</span>,
-                                <span class="json-string">"community.lexicon.location.hthree"</span>
-                            ]
-                        }
-                    },
-                    <span class="json-key">"uris"</span>: {
-                        <span class="json-key">"type"</span>: <span class="json-string">"array"</span>,
-                        <span class="json-key">"description"</span>: <span class="json-string">"URIs associated with the event."</span>,
-                        <span class="json-key">"items"</span>: {
-                            <span class="json-key">"type"</span>: <span class="json-string">"ref"</span>,
-                            <span class="json-key">"ref"</span>: <span class="json-string">"community.lexicon.calendar.event#uri"</span>
-                        }
-                    }
-                }
-            }
-        },
-        <span class="json-key">"mode"</span>: {
-            <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
-            <span class="json-key">"description"</span>: <span class="json-string">"The mode of the event."</span>,
-            <span class="json-key">"default"</span>: <span class="json-string">"community.lexicon.calendar.event#inperson"</span>,
-            <span class="json-key">"knownValues"</span>: [
-                <span class="json-string">"community.lexicon.calendar.event#hybrid"</span>,
-                <span class="json-string">"community.lexicon.calendar.event#inperson"</span>,
-                <span class="json-string">"community.lexicon.calendar.event#virtual"</span>
-            ]
-        },
-        <span class="json-key">"virtual"</span>: {
-            <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
-            <span class="json-key">"description"</span>: <span class="json-string">"A virtual event that takes place online."</span>
-        },
-        <span class="json-key">"inperson"</span>: {
-            <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
-            <span class="json-key">"description"</span>: <span class="json-string">"An in-person event that takes place offline."</span>
-        },
-        <span class="json-key">"hybrid"</span>: {
-            <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
-            <span class="json-key">"description"</span>: <span class="json-string">"A hybrid event that takes place both online and offline."</span>
-        },
-        <span class="json-key">"status"</span>: {
-            <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
-            <span class="json-key">"description"</span>: <span class="json-string">"The status of the event."</span>,
-            <span class="json-key">"default"</span>: <span class="json-string">"community.lexicon.calendar.event#scheduled"</span>,
-            <span class="json-key">"knownValues"</span>: [
-                <span class="json-string">"community.lexicon.calendar.event#cancelled"</span>,
-                <span class="json-string">"community.lexicon.calendar.event#planned"</span>,
-                <span class="json-string">"community.lexicon.calendar.event#postponed"</span>,
-                <span class="json-string">"community.lexicon.calendar.event#rescheduled"</span>,
-                <span class="json-string">"community.lexicon.calendar.event#scheduled"</span>
-            ]
-        },
-        <span class="json-key">"planned"</span>: {
-            <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
-            <span class="json-key">"description"</span>: <span class="json-string">"The event has been created, but not finalized."</span>
-        },
-        <span class="json-key">"scheduled"</span>: {
-            <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
-            <span class="json-key">"description"</span>: <span class="json-string">"The event has been created and scheduled."</span>
-        },
-        <span class="json-key">"rescheduled"</span>: {
-            <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
-            <span class="json-key">"description"</span>: <span class="json-string">"The event has been rescheduled."</span>
-        },
-        <span class="json-key">"cancelled"</span>: {
-            <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
-            <span class="json-key">"description"</span>: <span class="json-string">"The event has been cancelled."</span>
-        },
-        <span class="json-key">"postponed"</span>: {
-            <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
-            <span class="json-key">"description"</span>: <span class="json-string">"The event has been postponed and a new start date has not been set."</span>
-        },
-        <span class="json-key">"uri"</span>: {
-            <span class="json-key">"type"</span>: <span class="json-string">"object"</span>,
-            <span class="json-key">"description"</span>: <span class="json-string">"A URI associated with the event."</span>,
-            <span class="json-key">"required"</span>: [
-                <span class="json-string">"uri"</span>
-            ],
-            <span class="json-key">"properties"</span>: {
-                <span class="json-key">"uri"</span>: {
-                    <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
-                    <span class="json-key">"format"</span>: <span class="json-string">"uri"</span>
-                },
-                <span class="json-key">"name"</span>: {
-                    <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
-                    <span class="json-key">"description"</span>: <span class="json-string">"The display name of the URI."</span>
-                }
-            }
-        }
-    }
-}</code></pre>
+                <pre><code class="language-json" id="eventLexicon"></code></pre>
             </div>
         </section>
       
@@ -928,14 +783,163 @@
         // Animation auto-complétion du code
         document.addEventListener('DOMContentLoaded', function() {
             const lexiconCode = document.getElementById('eventLexicon');
-            const fullCode = lexiconCode.innerHTML;
+            const fullCode = `{
+    "lexicon": 1,
+    "id": "community.lexicon.calendar.event",
+    "defs": {
+        "main": {
+            "type": "record",
+            "description": "A calendar event.",
+            "key": "tid",
+            "record": {
+                "type": "object",
+                "required": [
+                    "createdAt",
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the event."
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the event."
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "datetime",
+                        "description": "Client-declared timestamp when the event was created."
+                    },
+                    "startsAt": {
+                        "type": "string",
+                        "format": "datetime",
+                        "description": "Client-declared timestamp when the event starts."
+                    },
+                    "endsAt": {
+                        "type": "string",
+                        "format": "datetime",
+                        "description": "Client-declared timestamp when the event ends."
+                    },
+                    "mode": {
+                        "type": "ref",
+                        "ref": "community.lexicon.calendar.event#mode",
+                        "description": "The attendance mode of the event."
+                    },
+                    "status": {
+                        "type": "ref",
+                        "ref": "community.lexicon.calendar.event#status",
+                        "description": "The status of the event."
+                    },
+                    "locations": {
+                        "type": "array",
+                        "description": "The locations where the event takes place.",
+                        "items": {
+                            "type": "union",
+                            "refs": [
+                                "community.lexicon.calendar.event#uri",
+                                "community.lexicon.location.address",
+                                "community.lexicon.location.fsq",
+                                "community.lexicon.location.geo",
+                                "community.lexicon.location.hthree"
+                            ]
+                        }
+                    },
+                    "uris": {
+                        "type": "array",
+                        "description": "URIs associated with the event.",
+                        "items": {
+                            "type": "ref",
+                            "ref": "community.lexicon.calendar.event#uri"
+                        }
+                    }
+                }
+            }
+        },
+        "mode": {
+            "type": "string",
+            "description": "The mode of the event.",
+            "default": "community.lexicon.calendar.event#inperson",
+            "knownValues": [
+                "community.lexicon.calendar.event#hybrid",
+                "community.lexicon.calendar.event#inperson",
+                "community.lexicon.calendar.event#virtual"
+            ]
+        },
+        "virtual": {
+            "type": "token",
+            "description": "A virtual event that takes place online."
+        },
+        "inperson": {
+            "type": "token",
+            "description": "An in-person event that takes place offline."
+        },
+        "hybrid": {
+            "type": "token",
+            "description": "A hybrid event that takes place both online and offline."
+        },
+        "status": {
+            "type": "string",
+            "description": "The status of the event.",
+            "default": "community.lexicon.calendar.event#scheduled",
+            "knownValues": [
+                "community.lexicon.calendar.event#cancelled",
+                "community.lexicon.calendar.event#planned",
+                "community.lexicon.calendar.event#postponed",
+                "community.lexicon.calendar.event#rescheduled",
+                "community.lexicon.calendar.event#scheduled"
+            ]
+        },
+        "planned": {
+            "type": "token",
+            "description": "The event has been created, but not finalized."
+        },
+        "scheduled": {
+            "type": "token",
+            "description": "The event has been created and scheduled."
+        },
+        "rescheduled": {
+            "type": "token",
+            "description": "The event has been rescheduled."
+        },
+        "cancelled": {
+            "type": "token",
+            "description": "The event has been cancelled."
+        },
+        "postponed": {
+            "type": "token",
+            "description": "The event has been postponed and a new start date has not been set."
+        },
+        "uri": {
+            "type": "object",
+            "description": "A URI associated with the event.",
+            "required": [
+                "uri"
+            ],
+            "properties": {
+                "uri": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the URI."
+                }
+            }
+        }
+    }
+}`;
+            
             let displayedCode = '';
             let i = 0;
             
             function typeWriter() {
                 if (i < fullCode.length) {
                     displayedCode += fullCode.charAt(i);
-                    lexiconCode.innerHTML = displayedCode;
+                    lexiconCode.innerHTML = displayedCode
+                        .replace(/"([^"]+)":/g, '<span class=\"json-key\">"$1"</span>:')
+                        .replace(/"([^"]+)"/g, '<span class=\"json-string\">"$1"</span>')
+                        .replace(/([0-9]+)/g, '<span class=\"json-value\">$1</span>');
                     i++;
                     setTimeout(typeWriter, 10);
                 }
