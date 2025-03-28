@@ -134,14 +134,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Section Événement avec largeur fixe */
-        .event-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 6rem 0;
-        }
-        
         .section-title {
             font-size: 2.5rem;
             margin-bottom: 2rem;
@@ -149,6 +141,13 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+        }
+        
+        .event-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 6rem 0;
         }
         
         .event-card {
@@ -293,7 +292,6 @@
             margin-top: 0.5rem;
         }
         
-        /* Section RSVP */
         .rsvp-section {
             padding: 1rem 1.5rem;
         }
@@ -379,72 +377,7 @@
             gap: 0.5rem;
         }
         
-        /* Section Newsletter */
-        .newsletter {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 16px;
-            padding: 3rem;
-            margin: 4rem 0;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .newsletter h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .newsletter p {
-            max-width: 600px;
-            margin: 0 auto 2rem auto;
-            opacity: 0.8;
-        }
-
-        .newsletter-form {
-            display: flex;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .newsletter-input {
-            flex-grow: 1;
-            padding: 1rem;
-            border: none;
-            border-radius: 50px 0 0 50px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1rem;
-            outline: none;
-        }
-
-        .newsletter-input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .newsletter-button {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            padding: 0 2rem;
-            border-radius: 0 50px 50px 0;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .newsletter-button:hover {
-            opacity: 0.9;
-        }
-
-        .success-message {
-            display: none;
-            color: #4BB543;
-            margin-top: 1rem;
-        }
+        /* Code Section Styles */
         .code-section {
             margin: 6rem 0;
         }
@@ -490,27 +423,21 @@
                 grid-template-columns: 1fr;
             }
 
-            .newsletter-form {
-                flex-direction: column;
-            }
-
-            .newsletter-input {
-                border-radius: 50px;
-                margin-bottom: 1rem;
-            }
-
-            .newsletter-button {
-                border-radius: 50px;
-                padding: 1rem;
-            }
-
             .section-title {
                 font-size: 2rem;
             }
 
             .event-section {
-                width: 100%; /* Pleine largeur sur mobile */
+                width: 100%;
                 padding: 0 1rem;
+            }
+            
+            .code-container {
+                padding: 1rem;
+            }
+            
+            pre {
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -527,7 +454,6 @@
             <p class="tagline">
                 Un protocole indépendant basée sur des standards ouverts pour le monde événementiel. 
             </p>
-            <!-- <a href="#early-access" class="cta-button">Accès anticipé</a> -->
             <a href="https://whtwnd.com/kayrozen.com/3llegbfk34z2a" class="cta-button">La réflexion ...</a>
         </section>
         
@@ -551,161 +477,7 @@
             </div>
         </section>
 
-                <!-- Remplacez la section code-section précédente par ceci -->
-        <section class="code-section">
-            <h2 class="section-title">Un protocole <a href="https://github.com/lexicon-community/lexicon">ouvert et interopérable></a></h2>
-            <div class="code-container">
-                <pre><code class="language-json" id="eventLexicon">{
-            <span class="json-key">"lexicon"</span>: <span class="json-value">1</span>,
-            <span class="json-key">"id"</span>: <span class="json-string">"community.lexicon.calendar.event"</span>,
-            <span class="json-key">"defs"</span>: {
-                <span class="json-key">"main"</span>: {
-                    <span class="json-key">"type"</span>: <span class="json-string">"record"</span>,
-                    <span class="json-key">"description"</span>: <span class="json-string">"A calendar event."</span>,
-                    <span class="json-key">"key"</span>: <span class="json-string">"tid"</span>,
-                    <span class="json-key">"record"</span>: {
-                        <span class="json-key">"type"</span>: <span class="json-string">"object"</span>,
-                        <span class="json-key">"required"</span>: [
-                            <span class="json-string">"createdAt"</span>,
-                            <span class="json-string">"name"</span>
-                        ],
-                        <span class="json-key">"properties"</span>: {
-                            <span class="json-key">"name"</span>: {
-                                <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
-                                <span class="json-key">"description"</span>: <span class="json-string">"The name of the event."</span>
-                            },
-                            <span class="json-key">"description"</span>: {
-                                <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
-                                <span class="json-key">"description"</span>: <span class="json-string">"The description of the event."</span>
-                            },
-                            <span class="json-key">"createdAt"</span>: {
-                                <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
-                                <span class="json-key">"format"</span>: <span class="json-string">"datetime"</span>,
-                                <span class="json-key">"description"</span>: <span class="json-string">"Client-declared timestamp when the event was created."</span>
-                            },
-                            <span class="json-key">"startsAt"</span>: {
-                                <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
-                                <span class="json-key">"format"</span>: <span class="json-string">"datetime"</span>,
-                                <span class="json-key">"description"</span>: <span class="json-string">"Client-declared timestamp when the event starts."</span>
-                            },
-                            <span class="json-key">"endsAt"</span>: {
-                                <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
-                                <span class="json-key">"format"</span>: <span class="json-string">"datetime"</span>,
-                                <span class="json-key">"description"</span>: <span class="json-string">"Client-declared timestamp when the event ends."</span>
-                            },
-                            <span class="json-key">"mode"</span>: {
-                                <span class="json-key">"type"</span>: <span class="json-string">"ref"</span>,
-                                <span class="json-key">"ref"</span>: <span class="json-string">"community.lexicon.calendar.event#mode"</span>,
-                                <span class="json-key">"description"</span>: <span class="json-string">"The attendance mode of the event."</span>
-                            },
-                            <span class="json-key">"status"</span>: {
-                                <span class="json-key">"type"</span>: <span class="json-string">"ref"</span>,
-                                <span class="json-key">"ref"</span>: <span class="json-string">"community.lexicon.calendar.event#status"</span>,
-                                <span class="json-key">"description"</span>: <span class="json-string">"The status of the event."</span>
-                            },
-                            <span class="json-key">"locations"</span>: {
-                                <span class="json-key">"type"</span>: <span class="json-string">"array"</span>,
-                                <span class="json-key">"description"</span>: <span class="json-string">"The locations where the event takes place."</span>,
-                                <span class="json-key">"items"</span>: {
-                                    <span class="json-key">"type"</span>: <span class="json-string">"union"</span>,
-                                    <span class="json-key">"refs"</span>: [
-                                        <span class="json-string">"community.lexicon.calendar.event#uri"</span>,
-                                        <span class="json-string">"community.lexicon.location.address"</span>,
-                                        <span class="json-string">"community.lexicon.location.fsq"</span>,
-                                        <span class="json-string">"community.lexicon.location.geo"</span>,
-                                        <span class="json-string">"community.lexicon.location.hthree"</span>
-                                    ]
-                                }
-                            },
-                            <span class="json-key">"uris"</span>: {
-                                <span class="json-key">"type"</span>: <span class="json-string">"array"</span>,
-                                <span class="json-key">"description"</span>: <span class="json-string">"URIs associated with the event."</span>,
-                                <span class="json-key">"items"</span>: {
-                                    <span class="json-key">"type"</span>: <span class="json-string">"ref"</span>,
-                                    <span class="json-key">"ref"</span>: <span class="json-string">"community.lexicon.calendar.event#uri"</span>
-                                }
-                            }
-                        }
-                    }
-                },
-                <span class="json-key">"mode"</span>: {
-                    <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
-                    <span class="json-key">"description"</span>: <span class="json-string">"The mode of the event."</span>,
-                    <span class="json-key">"default"</span>: <span class="json-string">"community.lexicon.calendar.event#inperson"</span>,
-                    <span class="json-key">"knownValues"</span>: [
-                        <span class="json-string">"community.lexicon.calendar.event#hybrid"</span>,
-                        <span class="json-string">"community.lexicon.calendar.event#inperson"</span>,
-                        <span class="json-string">"community.lexicon.calendar.event#virtual"</span>
-                    ]
-                },
-                <span class="json-key">"virtual"</span>: {
-                    <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
-                    <span class="json-key">"description"</span>: <span class="json-string">"A virtual event that takes place online."</span>
-                },
-                <span class="json-key">"inperson"</span>: {
-                    <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
-                    <span class="json-key">"description"</span>: <span class="json-string">"An in-person event that takes place offline."</span>
-                },
-                <span class="json-key">"hybrid"</span>: {
-                    <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
-                    <span class="json-key">"description"</span>: <span class="json-string">"A hybrid event that takes place both online and offline."</span>
-                },
-                <span class="json-key">"status"</span>: {
-                    <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
-                    <span class="json-key">"description"</span>: <span class="json-string">"The status of the event."</span>,
-                    <span class="json-key">"default"</span>: <span class="json-string">"community.lexicon.calendar.event#scheduled"</span>,
-                    <span class="json-key">"knownValues"</span>: [
-                        <span class="json-string">"community.lexicon.calendar.event#cancelled"</span>,
-                        <span class="json-string">"community.lexicon.calendar.event#planned"</span>,
-                        <span class="json-string">"community.lexicon.calendar.event#postponed"</span>,
-                        <span class="json-string">"community.lexicon.calendar.event#rescheduled"</span>,
-                        <span class="json-string">"community.lexicon.calendar.event#scheduled"</span>
-                    ]
-                },
-                <span class="json-key">"planned"</span>: {
-                    <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
-                    <span class="json-key">"description"</span>: <span class="json-string">"The event has been created, but not finalized."</span>
-                },
-                <span class="json-key">"scheduled"</span>: {
-                    <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
-                    <span class="json-key">"description"</span>: <span class="json-string">"The event has been created and scheduled."</span>
-                },
-                <span class="json-key">"rescheduled"</span>: {
-                    <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
-                    <span class="json-key">"description"</span>: <span class="json-string">"The event has been rescheduled."</span>
-                },
-                <span class="json-key">"cancelled"</span>: {
-                    <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
-                    <span class="json-key">"description"</span>: <span class="json-string">"The event has been cancelled."</span>
-                },
-                <span class="json-key">"postponed"</span>: {
-                    <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
-                    <span class="json-key">"description"</span>: <span class="json-string">"The event has been postponed and a new start date has not been set."</span>
-                },
-                <span class="json-key">"uri"</span>: {
-                    <span class="json-key">"type"</span>: <span class="json-string">"object"</span>,
-                    <span class="json-key">"description"</span>: <span class="json-string">"A URI associated with the event."</span>,
-                    <span class="json-key">"required"</span>: [
-                        <span class="json-string">"uri"</span>
-                    ],
-                    <span class="json-key">"properties"</span>: {
-                        <span class="json-key">"uri"</span>: {
-                            <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
-                            <span class="json-key">"format"</span>: <span class="json-string">"uri"</span>
-                        },
-                        <span class="json-key">"name"</span>: {
-                            <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
-                            <span class="json-key">"description"</span>: <span class="json-string">"The display name of the URI."</span>
-                        }
-                    }
-                }
-            }
-        }</code></pre>
-            </div>
-        </section>
-
-        <!-- Section Événement avec largeur fixe -->
-            <h2 class="section-title">Des événements de chez nous, avec nos proches !</h2>
+        <h2 class="section-title">Des événements de chez nous, avec nos proches !</h2>
         <section class="event-section">
             <div class="event-card">
                 <img src="https://picsum.photos/800/400?random=4&blur=1&grayscale" alt="Les Désaxés - Comedy Club" class="event-image">
@@ -717,10 +489,10 @@
                         </a>
                     </h2>
                     <div class="event-description">
-                        <div class="truncated-text" id="eventDescription">
+                        <div class="truncated-text" id="eventDescription1">
                             Le trio culte de l'humour absurde revient avec un nouveau spectacle déjanté. Entre sketchs surréalistes, chansons décalées et interactions hilarantes avec le public, ils explorent la fin du monde avec un humour aussi noir qu'une panne d'électricité. Pour public averti (et désaxé).
                         </div>
-                        <div class="read-more" onclick="toggleDescription()">Lire la suite</div>
+                        <div class="read-more" onclick="toggleDescription('eventDescription1')">Lire la suite</div>
                     </div>
                 </div>
                 
@@ -753,10 +525,9 @@
                             </a>
                         </div>
                     </div>
-                    <!-- Nouvelle section RSVP -->
+                    
                     <div class="rsvp-section">
                         <div class="rsvp-list">
-                            <!-- Exemples de profils Bluesky -->
                             <div class="rsvp-user">
                                 <img src="https://picsum.photos/200?random=101" alt="Profil Bluesky" class="user-avatar">
                                 <span class="user-handle">@jfmusic.bsky.social</span>
@@ -807,10 +578,10 @@
                         </a>
                     </h2>
                     <div class="event-description">
-                        <div class="truncated-text" id="eventDescription">
+                        <div class="truncated-text" id="eventDescription2">
                             Un mélange audacieux de jazz traditionnel et de beats électroniques. Neon Jazz Collective repousse les limites du genre avec des improvisations énergiques, des synthés analogiques et une section rythmique hypnotique. Une expérience immersive où Miles Davis rencontre Daft Punk.
                         </div>
-                        <div class="read-more" onclick="toggleDescription()">Lire la suite</div>
+                        <div class="read-more" onclick="toggleDescription('eventDescription2')">Lire la suite</div>
                     </div>
                 </div>
                 
@@ -843,10 +614,9 @@
                             </a>
                         </div>
                     </div>
-                    <!-- Nouvelle section RSVP -->
+                    
                     <div class="rsvp-section">
                         <div class="rsvp-list">
-                            <!-- Exemples de profils Bluesky -->
                             <div class="rsvp-user">
                                 <img src="https://picsum.photos/200?random=101" alt="Profil Bluesky" class="user-avatar">
                                 <span class="user-handle">@jfmusic.bsky.social</span>
@@ -897,9 +667,10 @@
                         </a>
                     </h2>
                     <div class="event-description">
-                        <div class="truncated-text" id="eventDescription">
-                            Une soirée unique où Dan Auger, artiste reconnu pour ses compositions folk-rock puissantes, se dévoile dans un format intimiste et dépouillé. Armé uniquement de sa guitare acoustique et de sa voix, il propose un voyage à travers ses plus grands succès et quelques compositions inédites.                        </div>
-                        <div class="read-more" onclick="toggleDescription()">Lire la suite</div>
+                        <div class="truncated-text" id="eventDescription3">
+                            Une soirée unique où Dan Auger, artiste reconnu pour ses compositions folk-rock puissantes, se dévoile dans un format intimiste et dépouillé. Armé uniquement de sa guitare acoustique et de sa voix, il propose un voyage à travers ses plus grands succès et quelques compositions inédites.
+                        </div>
+                        <div class="read-more" onclick="toggleDescription('eventDescription3')">Lire la suite</div>
                     </div>
                 </div>
                 
@@ -932,10 +703,9 @@
                             </a>
                         </div>
                     </div>
-                    <!-- Nouvelle section RSVP -->
+                    
                     <div class="rsvp-section">
                         <div class="rsvp-list">
-                            <!-- Exemples de profils Bluesky -->
                             <div class="rsvp-user">
                                 <img src="https://picsum.photos/200?random=101" alt="Profil Bluesky" class="user-avatar">
                                 <span class="user-handle">@jfmusic.bsky.social</span>
@@ -977,9 +747,157 @@
             </div>
         </section>
 
-        
-
-
+        <section class="code-section">
+            <h2 class="section-title">Lexicon des Événements</h2>
+            <div class="code-container">
+                <pre><code class="language-json" id="eventLexicon">{
+    <span class="json-key">"lexicon"</span>: <span class="json-value">1</span>,
+    <span class="json-key">"id"</span>: <span class="json-string">"community.lexicon.calendar.event"</span>,
+    <span class="json-key">"defs"</span>: {
+        <span class="json-key">"main"</span>: {
+            <span class="json-key">"type"</span>: <span class="json-string">"record"</span>,
+            <span class="json-key">"description"</span>: <span class="json-string">"A calendar event."</span>,
+            <span class="json-key">"key"</span>: <span class="json-string">"tid"</span>,
+            <span class="json-key">"record"</span>: {
+                <span class="json-key">"type"</span>: <span class="json-string">"object"</span>,
+                <span class="json-key">"required"</span>: [
+                    <span class="json-string">"createdAt"</span>,
+                    <span class="json-string">"name"</span>
+                ],
+                <span class="json-key">"properties"</span>: {
+                    <span class="json-key">"name"</span>: {
+                        <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
+                        <span class="json-key">"description"</span>: <span class="json-string">"The name of the event."</span>
+                    },
+                    <span class="json-key">"description"</span>: {
+                        <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
+                        <span class="json-key">"description"</span>: <span class="json-string">"The description of the event."</span>
+                    },
+                    <span class="json-key">"createdAt"</span>: {
+                        <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
+                        <span class="json-key">"format"</span>: <span class="json-string">"datetime"</span>,
+                        <span class="json-key">"description"</span>: <span class="json-string">"Client-declared timestamp when the event was created."</span>
+                    },
+                    <span class="json-key">"startsAt"</span>: {
+                        <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
+                        <span class="json-key">"format"</span>: <span class="json-string">"datetime"</span>,
+                        <span class="json-key">"description"</span>: <span class="json-string">"Client-declared timestamp when the event starts."</span>
+                    },
+                    <span class="json-key">"endsAt"</span>: {
+                        <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
+                        <span class="json-key">"format"</span>: <span class="json-string">"datetime"</span>,
+                        <span class="json-key">"description"</span>: <span class="json-string">"Client-declared timestamp when the event ends."</span>
+                    },
+                    <span class="json-key">"mode"</span>: {
+                        <span class="json-key">"type"</span>: <span class="json-string">"ref"</span>,
+                        <span class="json-key">"ref"</span>: <span class="json-string">"community.lexicon.calendar.event#mode"</span>,
+                        <span class="json-key">"description"</span>: <span class="json-string">"The attendance mode of the event."</span>
+                    },
+                    <span class="json-key">"status"</span>: {
+                        <span class="json-key">"type"</span>: <span class="json-string">"ref"</span>,
+                        <span class="json-key">"ref"</span>: <span class="json-string">"community.lexicon.calendar.event#status"</span>,
+                        <span class="json-key">"description"</span>: <span class="json-string">"The status of the event."</span>
+                    },
+                    <span class="json-key">"locations"</span>: {
+                        <span class="json-key">"type"</span>: <span class="json-string">"array"</span>,
+                        <span class="json-key">"description"</span>: <span class="json-string">"The locations where the event takes place."</span>,
+                        <span class="json-key">"items"</span>: {
+                            <span class="json-key">"type"</span>: <span class="json-string">"union"</span>,
+                            <span class="json-key">"refs"</span>: [
+                                <span class="json-string">"community.lexicon.calendar.event#uri"</span>,
+                                <span class="json-string">"community.lexicon.location.address"</span>,
+                                <span class="json-string">"community.lexicon.location.fsq"</span>,
+                                <span class="json-string">"community.lexicon.location.geo"</span>,
+                                <span class="json-string">"community.lexicon.location.hthree"</span>
+                            ]
+                        }
+                    },
+                    <span class="json-key">"uris"</span>: {
+                        <span class="json-key">"type"</span>: <span class="json-string">"array"</span>,
+                        <span class="json-key">"description"</span>: <span class="json-string">"URIs associated with the event."</span>,
+                        <span class="json-key">"items"</span>: {
+                            <span class="json-key">"type"</span>: <span class="json-string">"ref"</span>,
+                            <span class="json-key">"ref"</span>: <span class="json-string">"community.lexicon.calendar.event#uri"</span>
+                        }
+                    }
+                }
+            }
+        },
+        <span class="json-key">"mode"</span>: {
+            <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
+            <span class="json-key">"description"</span>: <span class="json-string">"The mode of the event."</span>,
+            <span class="json-key">"default"</span>: <span class="json-string">"community.lexicon.calendar.event#inperson"</span>,
+            <span class="json-key">"knownValues"</span>: [
+                <span class="json-string">"community.lexicon.calendar.event#hybrid"</span>,
+                <span class="json-string">"community.lexicon.calendar.event#inperson"</span>,
+                <span class="json-string">"community.lexicon.calendar.event#virtual"</span>
+            ]
+        },
+        <span class="json-key">"virtual"</span>: {
+            <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
+            <span class="json-key">"description"</span>: <span class="json-string">"A virtual event that takes place online."</span>
+        },
+        <span class="json-key">"inperson"</span>: {
+            <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
+            <span class="json-key">"description"</span>: <span class="json-string">"An in-person event that takes place offline."</span>
+        },
+        <span class="json-key">"hybrid"</span>: {
+            <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
+            <span class="json-key">"description"</span>: <span class="json-string">"A hybrid event that takes place both online and offline."</span>
+        },
+        <span class="json-key">"status"</span>: {
+            <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
+            <span class="json-key">"description"</span>: <span class="json-string">"The status of the event."</span>,
+            <span class="json-key">"default"</span>: <span class="json-string">"community.lexicon.calendar.event#scheduled"</span>,
+            <span class="json-key">"knownValues"</span>: [
+                <span class="json-string">"community.lexicon.calendar.event#cancelled"</span>,
+                <span class="json-string">"community.lexicon.calendar.event#planned"</span>,
+                <span class="json-string">"community.lexicon.calendar.event#postponed"</span>,
+                <span class="json-string">"community.lexicon.calendar.event#rescheduled"</span>,
+                <span class="json-string">"community.lexicon.calendar.event#scheduled"</span>
+            ]
+        },
+        <span class="json-key">"planned"</span>: {
+            <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
+            <span class="json-key">"description"</span>: <span class="json-string">"The event has been created, but not finalized."</span>
+        },
+        <span class="json-key">"scheduled"</span>: {
+            <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
+            <span class="json-key">"description"</span>: <span class="json-string">"The event has been created and scheduled."</span>
+        },
+        <span class="json-key">"rescheduled"</span>: {
+            <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
+            <span class="json-key">"description"</span>: <span class="json-string">"The event has been rescheduled."</span>
+        },
+        <span class="json-key">"cancelled"</span>: {
+            <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
+            <span class="json-key">"description"</span>: <span class="json-string">"The event has been cancelled."</span>
+        },
+        <span class="json-key">"postponed"</span>: {
+            <span class="json-key">"type"</span>: <span class="json-string">"token"</span>,
+            <span class="json-key">"description"</span>: <span class="json-string">"The event has been postponed and a new start date has not been set."</span>
+        },
+        <span class="json-key">"uri"</span>: {
+            <span class="json-key">"type"</span>: <span class="json-string">"object"</span>,
+            <span class="json-key">"description"</span>: <span class="json-string">"A URI associated with the event."</span>,
+            <span class="json-key">"required"</span>: [
+                <span class="json-string">"uri"</span>
+            ],
+            <span class="json-key">"properties"</span>: {
+                <span class="json-key">"uri"</span>: {
+                    <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
+                    <span class="json-key">"format"</span>: <span class="json-string">"uri"</span>
+                },
+                <span class="json-key">"name"</span>: {
+                    <span class="json-key">"type"</span>: <span class="json-string">"string"</span>,
+                    <span class="json-key">"description"</span>: <span class="json-string">"The display name of the URI."</span>
+                }
+            }
+        }
+    }
+}</code></pre>
+            </div>
+        </section>
       
         <footer>
             <p>© 2025 Plaque Tournante.</p>
@@ -989,9 +907,9 @@
 
     <script>
         // Gestion de la description d'événement
-        function toggleDescription() {
-            const desc = document.getElementById('eventDescription');
-            const btn = document.querySelector('.read-more');
+        function toggleDescription(id) {
+            const desc = document.getElementById(id);
+            const btn = desc.nextElementSibling;
             
             if (desc.classList.contains('truncated-text')) {
                 desc.classList.remove('truncated-text');
@@ -1002,9 +920,12 @@
             }
         }
 
-    </script>
-        <!-- Ajoutez ce script pour l'auto-complétion -->
-    <script>
+        // Gestion RSVP
+        function rsvpToEvent() {
+            alert("Fonctionnalité RSVP à implémenter!");
+        }
+
+        // Animation auto-complétion du code
         document.addEventListener('DOMContentLoaded', function() {
             const lexiconCode = document.getElementById('eventLexicon');
             const fullCode = lexiconCode.innerHTML;
@@ -1020,7 +941,6 @@
                 }
             }
             
-            // Démarrer l'animation quand la section est visible
             const observer = new IntersectionObserver((entries) => {
                 if (entries[0].isIntersecting) {
                     typeWriter();
